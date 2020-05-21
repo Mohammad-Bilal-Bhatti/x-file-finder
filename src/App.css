@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+
+.custom-light-dark {
+  background-color: #525252;
+  color: #dcdcdc;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #313131;
+  color: #fcfcfc;
+}
+
+.custom-mild-dark {
+  background-color: #414141;
+  color: #dcdcdc;
+}
+.custom-dark {
+  background-color: #313131;
+  color: #dcdcdc;
+}
+.custom-contrast {
+  background-color: #ca3e47;
+  color: #dcdcdc;
+}
+.list-group {
+  color: #444;
+}
+.list-group-item {
+  background-color: #333;
+  color: #cdcdcd;
+}
+.text-purple {
+  color: #ad62aa;
+}
+
+.hand-cursor {
+  cursor: pointer;
+}
+
+
+
+
