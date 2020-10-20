@@ -14,7 +14,7 @@ import Pagination from "./components/table/pagination";
 import * as page from "./common/pagination";
 import sort from "./common/sort";
 
-import Engine from './common/engine';
+import Engine from "./common/engine";
 
 class App extends Component {
   state = {
@@ -22,9 +22,9 @@ class App extends Component {
       dirLabel: "Select Directory",
       searchPattern: "",
     },
-    error:{
-      name: 'searchBtn',
-      message: 'By Default Disable Button'
+    error: {
+      name: "searchBtn",
+      message: "By Default Disable Button",
     },
     sortedColumn: {
       name: "",
@@ -78,42 +78,41 @@ class App extends Component {
   };
 
   handleSearch = () => {
-    console.log('Search...');
+    console.log("Search...");
 
     const { data, list } = this.state;
 
     const pattern = data.searchPattern;
     const root = data.dirLabel;
 
-
-    console.log('Path: ', root);
-    console.log('Pattern: ', pattern);
+    console.log("Path: ", root);
+    console.log("Pattern: ", pattern);
 
     // const engine = new Engine();
-    const selected = Number( list.selected );
+    const selected = Number(list.selected);
 
     switch (selected) {
       case 0:
-        console.log('File Search');
+        console.log("File Search");
         break;
       case 1:
-        console.log('Folder Search');
+        console.log("Folder Search");
         break;
       case 2:
-        console.log('Hidden File Search');
+        console.log("Hidden File Search");
         break;
       case 3:
-        console.log('Hidden Folder Search');
+        console.log("Hidden Folder Search");
         break;
       case 4:
-        console.log('Search via Extension');
+        console.log("Search via Extension");
+        const engine = new Engine();
         break;
-            
+
       default:
         break;
     }
-    
-  }
+  };
 
   handleListClick = (selectedItem) => {
     const list = { ...this.state.list };
@@ -159,8 +158,6 @@ class App extends Component {
 
     // this.setState({ table });
 
-   
-
     const filePath = files[0].path;
     const index = filePath.lastIndexOf("\\");
     const parent = filePath.slice(0, index + 1);
@@ -174,27 +171,25 @@ class App extends Component {
     const data = { ...this.state.data };
     data[inputName] = inputValue;
 
-
     const pattern = data.searchPattern;
     const root = data.dirLabel;
 
     let error = undefined;
 
-    if (pattern.length === 0){
+    if (pattern.length === 0) {
       error = {
-        name: 'searchBtn',
-        message: 'pattern not provided...'
-      }
-      return this.setState({data,error});
+        name: "searchBtn",
+        message: "pattern not provided...",
+      };
+      return this.setState({ data, error });
     }
 
-    if (root === "Select Directory"){
+    if (root === "Select Directory") {
       error = {
         name: "selectDirError",
-        message: "Please select the folder where to start scan."
-      }
+        message: "Please select the folder where to start scan.",
+      };
     }
-
 
     this.setState({ data, error });
   };
@@ -228,7 +223,7 @@ class App extends Component {
                   error={this.state.error}
                   onFileSelect={this.handleFileSelect}
                   onChange={this.handleChange}
-                  onSubmit = {this.handleSearch}
+                  onSubmit={this.handleSearch}
                 />
               </div>
               <div className="row mb-4 justify-content-center align-items-center">
